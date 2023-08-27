@@ -68,8 +68,18 @@ func _physics_process(delta):
 		velocity.z = 0.0
 		
 	#head bobbing
-	#Implement later on
-
+	if input_dir.x>0:
+		head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(-5), 0.05)
+	elif input_dir.x<0:
+		head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(5), 0.05)
+	else:
+		head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(0), 0.05)
+	if input_dir.y>0:
+		$Head/AnimationPlayer.play("bob")
+	elif input_dir.y<0:
+		$Head/AnimationPlayer.play("bob")
+	else:
+		$Head/AnimationPlayer.stop()
 	#FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED *2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
