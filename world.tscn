@@ -119,7 +119,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.665, 0)
 
 [node name="ShoulderCamera" type="Camera3D" parent="Player/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1207, 0.0139713, 2.89015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18609, 0.0139713, 2.9295)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 0.480453, 5.27127)
