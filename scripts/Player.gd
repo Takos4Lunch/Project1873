@@ -12,6 +12,10 @@ const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
 var t_bob = 0.0
 
+# fov changes
+const BASE_FOV = 75.0
+const FOV_CHANGE = 1.5
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
@@ -63,6 +67,11 @@ func _physics_process(delta):
 	#head bobbing
 	#Implement later on
 
+	#FOV
+	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED *2)
+	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
+	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	
 	move_and_slide()
 
 func _change_camera():

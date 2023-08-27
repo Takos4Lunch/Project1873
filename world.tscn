@@ -82,4 +82,5 @@ material = SubResource("StandardMaterial3D_8yuqq")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29681, 2.25242, 2.08265)
+use_collision = true
 material = SubResource("ShaderMaterial_hbv5c")
