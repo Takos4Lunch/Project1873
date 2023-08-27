@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4ht0pkxmidgm"]
+[gd_scene load_steps=12 format=3 uid="uid://c4ht0pkxmidgm"]
 
 [ext_resource type="Texture2D" uid="uid://cdbgtgws7kj2p" path="res://textures/FyR-_N7XgAI7JA4.jpg" id="1_eth2f"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_t7c8s"]
-[ext_resource type="PackedScene" uid="uid://bbhx5c5up1vky" path="res://blender_imports/water.blend" id="3_msbqx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u0rgm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -84,8 +83,3 @@ material = SubResource("StandardMaterial3D_8yuqq")
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29681, 2.25242, 2.08265)
 material = SubResource("ShaderMaterial_hbv5c")
-
-[node name="water" parent="." instance=ExtResource("3_msbqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0589, 0.719961, 13.1177)
-
-[editable path="water"]
