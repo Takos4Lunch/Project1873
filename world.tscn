@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4ht0pkxmidgm"]
+[gd_scene load_steps=15 format=3 uid="uid://c4ht0pkxmidgm"]
 
 [ext_resource type="Texture2D" uid="uid://cdbgtgws7kj2p" path="res://textures/FyR-_N7XgAI7JA4.jpg" id="1_eth2f"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_t7c8s"]
+[ext_resource type="Texture2D" uid="uid://c7kl3tcmbvmei" path="res://textures/crosshair.png" id="3_528ta"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u0rgm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -78,6 +79,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66119, 0)
 libraries = {
 "": SubResource("AnimationLibrary_ymx21")
 }
+
+[node name="crosshair" type="TextureRect" parent="Player/Head/Camera3D"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_528ta")
 
 [node name="Camera3D2" type="Camera3D" parent="Player/Head"]
 transform = Transform3D(0.992538, 0, 0.121939, 0, 1, 0, -0.121939, 0, 0.992538, 3.49838, 2.20469, 4.21021)

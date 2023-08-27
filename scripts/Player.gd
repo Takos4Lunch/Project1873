@@ -22,9 +22,12 @@ var gravity = 9.8
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var camera3 = $Head/Camera3D2
+@onready var crosshair = $Head/Camera3D/crosshair
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	crosshair.position.x = get_viewport().size.x/ 2 - 32
+	crosshair.position.y = get_viewport().size.y/ 2 - 32
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
