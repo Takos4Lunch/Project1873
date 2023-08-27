@@ -103,7 +103,7 @@ shape = SubResource("ConvexPolygonShape3D_gpao1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00651538, 1.16611, -0.0565306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00651538, 1.49337, -0.0565306)
 
 [node name="crosshair" type="TextureRect" parent="Player/Head/Camera3D"]
 offset_right = 40.0
@@ -114,12 +114,6 @@ texture = ExtResource("3_528ta")
 libraries = {
 "": SubResource("AnimationLibrary_34pig")
 }
-
-[node name="Pivot" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.665, 0)
-
-[node name="ShoulderCamera" type="Camera3D" parent="Player/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1207, 0.0139713, 2.89015)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 0.480453, 5.27127)
