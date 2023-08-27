@@ -68,8 +68,8 @@ func _physics_process(delta):
 			velocity.x = 0.0
 			velocity.z = 0.0
 	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 2.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 2.0)
+		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 		
 	#head bobbing
 	if input_dir.x>0 && Input.is_action_pressed("sprint"):
