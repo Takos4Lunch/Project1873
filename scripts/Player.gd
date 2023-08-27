@@ -21,8 +21,9 @@ var gravity = 9.8
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
-@onready var camera3 = $Head/Camera3D2
 @onready var crosshair = $Head/Camera3D/crosshair
+@onready var pivot = $Pivot
+@onready var shoulder_camera = $Pivot/ShoulderCamera
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -32,12 +33,12 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
-		if camera.is_current():
-			camera.rotate_x(-event.relative.y * SENSITIVITY)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-		else:
-			camera3.rotate_x(-event.relative.y * SENSITIVITY)
-			camera3.rotation.x = clamp(camera3.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		
+		pivot.rotate_y(-event.relative.x * SENSITIVITY)
+		shoulder_camera.rotate_x(-event.relative.y * SENSITIVITY)
+		shoulder_camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -54,7 +55,8 @@ func _physics_process(delta):
 	else:
 		speed = WALK_SPEED
 	#Handle camera
-	_change_camera()
+	if Input.is_action_just_pressed("camera"):
+		_switch_camera()
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -91,11 +93,10 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _change_camera():
-	if Input.is_action_just_pressed("camera"):
-		if camera.is_current():
-			camera3.set_current(true)
-			camera.set_current(false)
-		else:
-			camera.set_current(true)
-			camera3.set_current(false)
+func _switch_camera():
+	if camera.is_current():
+		camera.set_current(false)
+		shoulder_camera.set_current(true)
+	else:
+		camera.set_current(true)
+		shoulder_camera.set_current(false)
