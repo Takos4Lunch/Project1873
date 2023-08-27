@@ -26,8 +26,8 @@ var gravity = 9.8
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	crosshair.position.x = get_viewport().size.x/ 2 - 32
-	crosshair.position.y = get_viewport().size.y/ 2 - 32
+	crosshair.position.x = get_viewport().size.x/2-32
+	crosshair.position.y = get_viewport().size.y/2-32
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -68,9 +68,9 @@ func _physics_process(delta):
 		velocity.z = 0.0
 		
 	#head bobbing
-	if input_dir.x>0:
+	if input_dir.x>0 && Input.is_action_pressed("sprint"):
 		head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(-5), 0.05)
-	elif input_dir.x<0:
+	elif input_dir.x<0 && Input.is_action_pressed("sprint"):
 		head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(5), 0.05)
 	else:
 		head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(0), 0.05)
